@@ -198,6 +198,7 @@ const myJoin = (inputArray, separator) => {
   for (let i = 0; i < arrayLength; i++) {
     /*
      * REVIEW: The condition in this `if` can be simplified
+     * AR - no clue
      */
     if (i === arrayLength - 1 || arrayLength === 1) {
       resultString += inputArray[i];
@@ -235,24 +236,39 @@ const myConcat = (...inputArrays) => {
 
 /*
  * REVIEW: This is not a `reduce()`, this is a `sum()`
+ * AR - Fixed?
  */
 
 // reduce()
-const myReduce = (inputArray, accumulator) => {
+const myReduce = (inputArray, callback, accumulator) => {
   if (accumulator === undefined) {
-    accumulator = 0;
-  }
-  for (let i = 0; i < inputArray.length; i++) {
-    accumulator += inputArray[i];
+    accumulator = inputArray[0];
+    for (let i = 1; i < inputArray.length; i++) {
+      accumulator = callback(accumulator, inputArray[i], i, inputArray);
+    }
+  } else {
+    for (let i = 0; i < inputArray.length; i++) {
+      accumulator = callback(accumulator, inputArray[i], i, inputArray);
+    }
   }
   return accumulator;
 };
 
 // // reduce implementation
-// console.log(myReduce(myArray, 0));
+const reducer = (acc, cur) => {
+  return acc + cur;
+};
+
+console.log(myReduce(myArray, reducer));
 // // returns 607
-// console.log(myReduce(myArray, 50));
+console.log(myReduce(myArray, reducer, 50));
 // // return 657
+
+const reducerTwo = (acc, cur) => {
+  return acc * cur;
+};
+
+console.log(myReduce(myArray, reducerTwo));
 
 // ************************************************** //
 
