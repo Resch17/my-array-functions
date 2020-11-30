@@ -174,5 +174,26 @@ const myConcat = (...inputArrays) => {
   return outputArray;
 };
 
-// concat implementation
-console.log(myConcat(myArray, myWordArray, mySecondWordArray));
+// // concat implementation
+// console.log(myConcat(myArray, myWordArray, mySecondWordArray));
+
+// ************************************************** //
+
+// reduce()
+const myReduce = (inputArray, accumulator) => {
+  if (accumulator === undefined) {
+    accumulator = 0;
+  }
+  for (let i = 0; i < inputArray.length; i++) {
+    accumulator += inputArray[i];
+  }
+  return accumulator;
+};
+
+// // reduce implementation
+// console.log(myReduce(myArray, 0));
+// // returns 607
+// console.log(myReduce(myArray, 50));
+// // return 657
+
+// ************************************************** //
