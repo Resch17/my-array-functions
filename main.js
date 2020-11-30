@@ -1,5 +1,10 @@
 let myArray = [100, 1, 200, 2, 300, 3, 1];
 
+/* 
+ * REVIEW: I believe you'll fid that the `callback` function passed to
+ *   most of these functions should take more than one argument
+ */
+
 // forEach()
 const myForEach = (inputArray, callback) => {
   for (let i = 0; i < inputArray.length; i++) {
@@ -55,6 +60,13 @@ const myIncludes = (inputArray, search) => {
 const mySome = (inputArray, callback) => {
   for (let i = 0; i < inputArray.length; i++) {
     const result = callback(inputArray[i]);
+
+    /* 
+    * REVIEW: the value of `result` might not be a real boolean, but may be
+    *  either "truthy" or "falsy"
+    *  Your code does not account for that.
+    */
+
     if (result === true) {
       return true;
     }
@@ -74,6 +86,13 @@ const mySome = (inputArray, callback) => {
 const myEvery = (inputArray, callback) => {
   for (let i = 0; i < inputArray.length; i++) {
     const result = callback(inputArray[i]);
+
+    /* 
+    * REVIEW: the value of `result` might not be a real boolean, but may be
+    *  either "truthy" or "falsy"
+    *  Your code does not account for that.
+    */
+
     if (result !== true) {
       return false;
     }
@@ -93,6 +112,13 @@ const myEvery = (inputArray, callback) => {
 const myFind = (inputArray, callback) => {
   for (let i = 0; i < inputArray.length; i++) {
     const result = callback(inputArray[i]);
+
+    /* 
+    * REVIEW: the value of `result` might not be a real boolean, but may be
+    *  either "truthy" or "falsy"
+    *  Your code does not account for that.
+    */
+
     if (result === true) {
       return inputArray[i];
     }
@@ -123,6 +149,11 @@ const myIndexOf = (inputArray, search) => {
 // // returns -1
 
 // ************************************************** //
+
+
+/* 
+* REVIEW: This function looks like it does the same thing as `myIndexOf` above
+*/
 
 // lastIndexOf()
 const myLastIndexOf = (inputArray, search) => {
@@ -156,6 +187,9 @@ const myJoin = (inputArray, separator) => {
   let arrayLength = inputArray.length;
 
   for (let i = 0; i < arrayLength; i++) {
+    /* 
+    * REVIEW: The condition in this `if` can be simplified
+    */
     if (i === arrayLength - 1 || arrayLength === 1) {
       resultString += inputArray[i];
     } else {
@@ -189,6 +223,11 @@ const myConcat = (...inputArrays) => {
 // console.log(myConcat(myArray, myWordArray, mySecondWordArray));
 
 // ************************************************** //
+
+
+/* 
+* REVIEW: This is not a `reduce()`, this is a `sum()`
+*/
 
 // reduce()
 const myReduce = (inputArray, accumulator) => {
