@@ -32,9 +32,9 @@ const myMap = (inputArray, callback) => {
 // ************************************************** //
 
 // includes()
-const myIncludes = (inputArray, test) => {
+const myIncludes = (inputArray, search) => {
   for (let i = 0; i < inputArray.length; i++) {
-    if (inputArray[i] === test) {
+    if (inputArray[i] === search) {
       return true;
     }
   }
@@ -90,5 +90,26 @@ const myFind = (inputArray, callback) => {
 
 // // find implementation
 // console.log(myFind(myArray, (x)=>x>100))
+
+// ************************************************** //
+
+// indexOf()
+const myIndexOf = (inputArray, search) => {
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] === search) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+// // indexOf implementation
+// console.log(myIndexOf(myArray, 100)); 
+// // returns 0
+// console.log(myIndexOf(myArray, 300)); 
+// // returns 4
+// console.log(myIndexOf(myArray, 900)); 
+// // returns -1
+
 
 // ************************************************** //
