@@ -1,5 +1,6 @@
 # My Array Functions
-
+#### Aaron's Notes:
+- Console-logged implementations of my functions appear commented out in main.js for testing purposes. Un-comment each to see results in console.
 ## A JavaScript Exercise
 
 JavaScript [arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) are a powerful tool for building complex applications. Along with the ability to store sequential data, the good people at [TC39](https://tc39.es/) have given us many useful array methods to make our lives easier. There are methods for modifying, looping over, transforming, sorting, querying and filtering arrays.
