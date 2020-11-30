@@ -104,33 +104,61 @@ const myIndexOf = (inputArray, search) => {
 };
 
 // // indexOf implementation
-// console.log(myIndexOf(myArray, 100)); 
+// console.log(myIndexOf(myArray, 100));
 // // returns 0
-// console.log(myIndexOf(myArray, 300)); 
+// console.log(myIndexOf(myArray, 300));
 // // returns 4
-// console.log(myIndexOf(myArray, 900)); 
+// console.log(myIndexOf(myArray, 900));
 // // returns -1
-
 
 // ************************************************** //
 
 // lastIndexOf()
 const myLastIndexOf = (inputArray, search) => {
-  let resultIndex = -1
+  let resultIndex = -1;
   for (let i = 0; i < inputArray.length; i++) {
     if (inputArray[i] === search) {
       resultIndex = i;
     }
   }
   return resultIndex;
-}
+};
 
-// lastIndexOf implementation
-console.log(myLastIndexOf(myArray, 1));
-// returns 6
-console.log(myLastIndexOf(myArray, 300));
-// returns 4
-console.log(myLastIndexOf(myArray, 4));
-// returns -1
+// // lastIndexOf implementation
+// console.log(myLastIndexOf(myArray, 1));
+// // returns 6
+// console.log(myLastIndexOf(myArray, 300));
+// // returns 4
+// console.log(myLastIndexOf(myArray, 4));
+// // returns -1
+
+// ************************************************** //
+
+// join()
+const myJoin = (inputArray, separator) => {
+  let resultString = "";
+  
+  if (separator === undefined) {
+    separator = ","
+  };
+  
+  let arrayLength = inputArray.length
+  
+  for (let i = 0; i < arrayLength; i++) {
+    if (i === arrayLength - 1 || arrayLength === 1) {
+      resultString += inputArray[i];
+    } else {
+      resultString += inputArray[i] + separator;
+    }
+  }
+  return resultString;
+};
+
+// // join implementation
+// const myWordArray = ["apple", "banana", "pear", "peach"];
+// console.log(myJoin(myWordArray));
+// console.log(myJoin(myWordArray, "-"))
+// const mySecondWordArray = ["apple"];
+// console.log(myJoin(mySecondWordArray));
 
 // ************************************************** //
