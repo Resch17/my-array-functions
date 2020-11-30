@@ -15,11 +15,11 @@ const myForEach = (inputArray, callback) => {
 
 // // forEach implementation
 // // adds 5 to each element in array
-myForEach(myArray, (input, x) => {
-  let result = input + 5;
-  console.log(result, `Index: ${x}`);
-  return result;
-});
+// myForEach(myArray, (input, x) => {
+//   let result = input + 5;
+//   console.log(result, `Index: ${x}`);
+//   return result;
+// });
 
 // ************************************************** //
 
@@ -33,8 +33,13 @@ const myMap = (inputArray, callback) => {
 };
 
 // // map implementation
-// // multiplies each element by 50
-// let resultArray = myMap(myArray, (x) => x * 50);
+// // multiplies each element by 50, puts it into an object with the index listed
+// let resultArray = myMap(myArray, (x, i) => {
+//   return {
+//     result: x * 50,
+//     index: i
+//   };
+// });
 // console.log(resultArray);
 
 // ************************************************** //
