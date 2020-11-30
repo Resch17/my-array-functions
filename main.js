@@ -137,13 +137,13 @@ const myLastIndexOf = (inputArray, search) => {
 // join()
 const myJoin = (inputArray, separator) => {
   let resultString = "";
-  
+
   if (separator === undefined) {
-    separator = ","
-  };
-  
-  let arrayLength = inputArray.length
-  
+    separator = ",";
+  }
+
+  let arrayLength = inputArray.length;
+
   for (let i = 0; i < arrayLength; i++) {
     if (i === arrayLength - 1 || arrayLength === 1) {
       resultString += inputArray[i];
@@ -155,10 +155,24 @@ const myJoin = (inputArray, separator) => {
 };
 
 // // join implementation
-// const myWordArray = ["apple", "banana", "pear", "peach"];
+const myWordArray = ["apple", "banana", "pear", "peach"];
 // console.log(myJoin(myWordArray));
 // console.log(myJoin(myWordArray, "-"))
-// const mySecondWordArray = ["apple"];
+const mySecondWordArray = ["apple"];
 // console.log(myJoin(mySecondWordArray));
 
 // ************************************************** //
+
+// concat()
+const myConcat = (...inputArrays) => {
+  let outputArray = [];
+  for (let i = 0; i < inputArrays.length; i++) {
+    for (let j = 0; j < inputArrays[i].length; j++) {
+      outputArray.push(inputArrays[i][j]);
+    }
+  }
+  return outputArray;
+};
+
+// concat implementation
+console.log(myConcat(myArray, myWordArray, mySecondWordArray));
