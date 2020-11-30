@@ -1,4 +1,4 @@
-let myArray = [100, 1, 200, 2, 300, 3];
+let myArray = [100, 1, 200, 2, 300, 3, 1];
 
 // forEach()
 const myForEach = (inputArray, callback) => {
@@ -111,5 +111,26 @@ const myIndexOf = (inputArray, search) => {
 // console.log(myIndexOf(myArray, 900)); 
 // // returns -1
 
+
+// ************************************************** //
+
+// lastIndexOf()
+const myLastIndexOf = (inputArray, search) => {
+  let resultIndex = -1
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] === search) {
+      resultIndex = i;
+    }
+  }
+  return resultIndex;
+}
+
+// lastIndexOf implementation
+console.log(myLastIndexOf(myArray, 1));
+// returns 6
+console.log(myLastIndexOf(myArray, 300));
+// returns 4
+console.log(myLastIndexOf(myArray, 4));
+// returns -1
 
 // ************************************************** //
