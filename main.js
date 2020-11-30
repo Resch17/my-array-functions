@@ -65,9 +65,10 @@ const mySome = (inputArray, callback) => {
     * REVIEW: the value of `result` might not be a real boolean, but may be
     *  either "truthy" or "falsy"
     *  Your code does not account for that.
+    * * AR - fixed
     */
 
-    if (result === true) {
+    if (result) {
       return true;
     }
   }
@@ -91,9 +92,10 @@ const myEvery = (inputArray, callback) => {
     * REVIEW: the value of `result` might not be a real boolean, but may be
     *  either "truthy" or "falsy"
     *  Your code does not account for that.
+    * * AR - fixed
     */
 
-    if (result !== true) {
+    if (!result) {
       return false;
     }
   }
@@ -117,9 +119,10 @@ const myFind = (inputArray, callback) => {
     * REVIEW: the value of `result` might not be a real boolean, but may be
     *  either "truthy" or "falsy"
     *  Your code does not account for that.
+    * AR - fixed
     */
 
-    if (result === true) {
+    if (result) {
       return inputArray[i];
     }
   }
@@ -141,8 +144,8 @@ const myIndexOf = (inputArray, search) => {
 };
 
 // // indexOf implementation
-// console.log(myIndexOf(myArray, 100));
-// // returns 0
+console.log(myIndexOf(myArray, 1));
+// // returns 1
 // console.log(myIndexOf(myArray, 300));
 // // returns 4
 // console.log(myIndexOf(myArray, 900));
@@ -167,7 +170,7 @@ const myLastIndexOf = (inputArray, search) => {
 };
 
 // // lastIndexOf implementation
-// console.log(myLastIndexOf(myArray, 1));
+console.log(myLastIndexOf(myArray, 1));
 // // returns 6
 // console.log(myLastIndexOf(myArray, 300));
 // // returns 4
