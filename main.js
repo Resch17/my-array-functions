@@ -8,7 +8,8 @@ const myForEach = (inputArray, callback) => {
 };
 
 // // forEach implementation
-// myForEach(myArray,function(input) {
+// // adds 5 to each element in array
+// myForEach(myArray, (input) => {
 //   let result = input + 5;
 //   console.log(result);
 //   return result;
@@ -26,6 +27,7 @@ const myMap = (inputArray, callback) => {
 };
 
 // // map implementation
+// // multiplies each element by 50
 // let resultArray = myMap(myArray, (x) => x * 50);
 // console.log(resultArray);
 
@@ -43,6 +45,9 @@ const myIncludes = (inputArray, search) => {
 
 // // includes implementation
 // console.log(myIncludes(myArray, 300));
+// // returns true
+// console.log(myIncludes(myArray, 4));
+// // returns false
 
 // ************************************************** //
 
@@ -59,6 +64,9 @@ const mySome = (inputArray, callback) => {
 
 // // some implementation
 // console.log(mySome(myArray, x => x > 9000));
+// // returns false
+// console.log(mySome(myArray, x => x === 300));
+// // returns true
 
 // ************************************************** //
 
@@ -75,6 +83,9 @@ const myEvery = (inputArray, callback) => {
 
 // // every implementation
 // console.log(myEvery(myArray, x => x >= 1))
+// // returns true
+// console.log(myEvery(myArray, x => x < 200))
+// // returns false
 
 // ************************************************** //
 
@@ -197,3 +208,17 @@ const myReduce = (inputArray, accumulator) => {
 // // return 657
 
 // ************************************************** //
+
+// reverse()
+const myReverse = (inputArray) => {
+  const resultArray = [];
+  const last = inputArray.length - 1;
+  for (let i = last; i > -1; i--) {
+    resultArray.push(inputArray[i]);
+  }
+  return resultArray;
+};
+
+// // reverse implementation
+// const myArrayToReverse = ["able", "baker", "charlie", "dog"];
+// console.log(myReverse(myArrayToReverse));
