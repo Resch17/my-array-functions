@@ -1,24 +1,25 @@
 let myArray = [100, 1, 200, 2, 300, 3, 1];
 
-/* 
+/*
  * REVIEW: I believe you'll fid that the `callback` function passed to
  *   most of these functions should take more than one argument
+ * AR - added optional arguments to callback functions
  */
 
 // forEach()
 const myForEach = (inputArray, callback) => {
   for (let i = 0; i < inputArray.length; i++) {
-    callback(inputArray[i]);
+    callback(inputArray[i], i, inputArray);
   }
 };
 
 // // forEach implementation
 // // adds 5 to each element in array
-// myForEach(myArray, (input) => {
-//   let result = input + 5;
-//   console.log(result);
-//   return result;
-// });
+myForEach(myArray, (input, x) => {
+  let result = input + 5;
+  console.log(result, `Index: ${x}`);
+  return result;
+});
 
 // ************************************************** //
 
@@ -26,7 +27,7 @@ const myForEach = (inputArray, callback) => {
 const myMap = (inputArray, callback) => {
   const result = [];
   for (let i = 0; i < inputArray.length; i++) {
-    result.push(callback(inputArray[i]));
+    result.push(callback(inputArray[i], i, inputArray));
   }
   return result;
 };
@@ -59,14 +60,14 @@ const myIncludes = (inputArray, search) => {
 // some()
 const mySome = (inputArray, callback) => {
   for (let i = 0; i < inputArray.length; i++) {
-    const result = callback(inputArray[i]);
+    const result = callback(inputArray[i], i, inputArray);
 
-    /* 
-    * REVIEW: the value of `result` might not be a real boolean, but may be
-    *  either "truthy" or "falsy"
-    *  Your code does not account for that.
-    * * AR - fixed
-    */
+    /*
+     * REVIEW: the value of `result` might not be a real boolean, but may be
+     *  either "truthy" or "falsy"
+     *  Your code does not account for that.
+     * * AR - fixed
+     */
 
     if (result) {
       return true;
@@ -86,14 +87,14 @@ const mySome = (inputArray, callback) => {
 // every()
 const myEvery = (inputArray, callback) => {
   for (let i = 0; i < inputArray.length; i++) {
-    const result = callback(inputArray[i]);
+    const result = callback(inputArray[i], i, inputArray);
 
-    /* 
-    * REVIEW: the value of `result` might not be a real boolean, but may be
-    *  either "truthy" or "falsy"
-    *  Your code does not account for that.
-    * * AR - fixed
-    */
+    /*
+     * REVIEW: the value of `result` might not be a real boolean, but may be
+     *  either "truthy" or "falsy"
+     *  Your code does not account for that.
+     * * AR - fixed
+     */
 
     if (!result) {
       return false;
@@ -113,14 +114,14 @@ const myEvery = (inputArray, callback) => {
 // find()
 const myFind = (inputArray, callback) => {
   for (let i = 0; i < inputArray.length; i++) {
-    const result = callback(inputArray[i]);
+    const result = callback(inputArray[i], i, inputArray);
 
-    /* 
-    * REVIEW: the value of `result` might not be a real boolean, but may be
-    *  either "truthy" or "falsy"
-    *  Your code does not account for that.
-    * AR - fixed
-    */
+    /*
+     * REVIEW: the value of `result` might not be a real boolean, but may be
+     *  either "truthy" or "falsy"
+     *  Your code does not account for that.
+     * AR - fixed
+     */
 
     if (result) {
       return inputArray[i];
@@ -144,7 +145,7 @@ const myIndexOf = (inputArray, search) => {
 };
 
 // // indexOf implementation
-console.log(myIndexOf(myArray, 1));
+// console.log(myIndexOf(myArray, 1));
 // // returns 1
 // console.log(myIndexOf(myArray, 300));
 // // returns 4
@@ -153,10 +154,10 @@ console.log(myIndexOf(myArray, 1));
 
 // ************************************************** //
 
-
-/* 
-* REVIEW: This function looks like it does the same thing as `myIndexOf` above
-*/
+/*
+ * REVIEW: This function looks like it does the same thing as `myIndexOf` above
+ * AR - they are designed almost the same, but myLastIndexOf keeps iterating and updates the resultIndex variable as it finds more matches. indexOf ends the loop by returning the index when it finds the first match.
+ */
 
 // lastIndexOf()
 const myLastIndexOf = (inputArray, search) => {
@@ -170,7 +171,7 @@ const myLastIndexOf = (inputArray, search) => {
 };
 
 // // lastIndexOf implementation
-console.log(myLastIndexOf(myArray, 1));
+// console.log(myLastIndexOf(myArray, 1));
 // // returns 6
 // console.log(myLastIndexOf(myArray, 300));
 // // returns 4
@@ -190,9 +191,9 @@ const myJoin = (inputArray, separator) => {
   let arrayLength = inputArray.length;
 
   for (let i = 0; i < arrayLength; i++) {
-    /* 
-    * REVIEW: The condition in this `if` can be simplified
-    */
+    /*
+     * REVIEW: The condition in this `if` can be simplified
+     */
     if (i === arrayLength - 1 || arrayLength === 1) {
       resultString += inputArray[i];
     } else {
@@ -227,10 +228,9 @@ const myConcat = (...inputArrays) => {
 
 // ************************************************** //
 
-
-/* 
-* REVIEW: This is not a `reduce()`, this is a `sum()`
-*/
+/*
+ * REVIEW: This is not a `reduce()`, this is a `sum()`
+ */
 
 // reduce()
 const myReduce = (inputArray, accumulator) => {
